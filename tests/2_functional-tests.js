@@ -34,14 +34,14 @@ suite("Functional Tests", function() {
             issue_title: "Issue",
             issue_text: "Functional Test",
             created_by: "fCC",
-            assigned_to: "Dom",
+            assigned_to: "Kenrique",
             status_text: "Not Done",
           })
           .end(function(err, res) {
             assert.equal(res.status, 200);
             deleteID = res.body._id;
             assert.equal(res.body.issue_title, "Issue");
-            assert.equal(res.body.assigned_to, "Dom");
+            assert.equal(res.body.assigned_to, "Kenrique");
             assert.equal(res.body.created_by, "fCC");
             assert.equal(res.body.status_text, "Not Done");
             assert.equal(res.body.issue_text, "Functional Test");
@@ -118,7 +118,7 @@ suite("Functional Tests", function() {
               "issue_text": "sads",
               "created_on": "2023-07-08T13:32:22.820Z",
               "updated_on": "2023-07-08T13:32:22.820Z",
-              "created_by": "Landon",
+              "created_by": "Ken",
               "assigned_to": "",
               "open": true,
               "status_text": ""
@@ -131,19 +131,19 @@ suite("Functional Tests", function() {
           .request(server)
           .get("/api/issues/test-data-abc123")
           .query({
-            issue_title: "Hey",
-            issue_text: "asdd",
+            issue_title: "Hello",
+            issue_text: "carry on",
           })
           .end(function(err, res) {
             assert.equal(res.status, 200);
             assert.deepEqual(res.body[0], {
                           
             "_id": "64a96672a11146912dff8717",
-            "issue_title": "Hey",
-            "issue_text": "asdd",
+            "issue_title": "Hello",
+            "issue_text": "carry on",
             "created_on": "2023-07-08T13:36:50.523Z",
             "updated_on": "2023-07-08T13:36:50.523Z",
-            "created_by": "ken",
+            "created_by": "Ken",
             "assigned_to": "",
             "open": true,
             "status_text": ""
